@@ -78,7 +78,7 @@ const HomeBalancesModalContainer = (props) => {
             income[transfer] -= money;
             income[receive] += money;
             saveUser = await updateUser(_id, { balance: { ...balance, income } });
-            saveTransaction = await newTransaction(_id, { type, date, transfer, receive });
+            saveTransaction = await newTransaction(_id, { type, money, date, transfer, receive });
             setAlert(ALERT.TRANSACTION_ADD_SUCCESS);
           } else setAlert(ALERT.TRANSACTION_LARGER_WALLET);
         }

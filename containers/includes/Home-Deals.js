@@ -8,7 +8,7 @@ const HomeDealsContainer = (props) => {
   const renderDealsItems = (arr) => {
     let result = null;
     let newArr = arr.filter((tran) => tran.type !== 'move-money');
-    newArr = newArr.slice(Math.max(newArr.length - 5, 0)).reverse();
+    newArr = newArr.slice(Math.max(newArr.length - 3, 0)).reverse();
     result = newArr.map((tran) => {
       return <HomeDealsItems key={tran._id} transaction={tran} />;
     });

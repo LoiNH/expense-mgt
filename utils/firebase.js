@@ -120,3 +120,7 @@ export function updateTransaction(user, _id, update) {
     return dataUpdate;
   });
 }
+
+export function deleteTransaction(user, _id) {
+  return transactionsModel.child(user).child(_id).remove();
+}

@@ -70,12 +70,19 @@ HomeJars.propTypes = {
   alert: PropTypes.shape({
     status: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   dataCharts: PropTypes.array.isRequired,
   onSubmit: PropTypes.func.isRequired,
   remain: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
+};
+
+HomeJars.defaultProps = {
+  alert: {
+    status: '',
+    text: '',
+  },
 };
 
 export default HomeJars;

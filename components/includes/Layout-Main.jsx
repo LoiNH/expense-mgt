@@ -10,6 +10,11 @@ const Layout = (props) => {
   return (
     <div className="expense-main py-3">
       <div className="container-fluid">
+        {props.emptyPercentJar ? (
+          <div className="alert alert-danger px-3 text-center rounded-0" role="alert">
+            <strong>Bạn phải thiết lập các hũ trước khi thực hiện giao dịch nhé!</strong>
+          </div>
+        ) : null}
         <div className="row">
           <div className="col-6 col-md-3">
             <div className="expense-main-head">
@@ -71,6 +76,7 @@ Layout.propTypes = {
     display_name: PropTypes.string.isRequired,
   }).isRequired,
   pathname: PropTypes.string.isRequired,
+  emptyPercentJar: PropTypes.bool.isRequired,
 };
 
 export default Layout;

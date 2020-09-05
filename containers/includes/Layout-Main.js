@@ -15,11 +15,14 @@ import { removeUser, setUser } from 'redux/user/action';
 import { getUser, getTransactions } from 'utils/firebase';
 import { setTransactions } from 'redux/transactions/action';
 import Footer from 'containers/includes/Footer';
+import { objectTotalValues } from 'helpers/object';
 
 const PRIVATE_KEY = process.env.NEXT_PUBLIC_PRIVATE_KEY;
 
 const LayoutMainContainer = (props) => {
   const router = useRouter();
+  let emptyPercentJar = false;
+  if (props.user._id) emptyPercentJar = objectTotalValues(props.user.balance.percent) < 100;
 
   const handleLogout = () => {
     props.loadingToggle(true);
@@ -65,6 +68,7 @@ const LayoutMainContainer = (props) => {
         handleLogout={handleLogout}
         componentFooter={<Footer />}
         componentSetting={<LayoutMainSetting />}
+        emptyPercentJar={emptyPercentJar}
       >
         {props.children}
       </LayoutMain>
@@ -81,6 +85,9 @@ LayoutMainContainer.propTypes = {
   title: PropTypes.string,
   user: PropTypes.shape({
     _id: PropTypes.string,
+    balance: PropTypes.shape({
+      percent: PropTypes.shape({}),
+    }),
   }),
 };
 
@@ -93,6 +100,9 @@ LayoutMainContainer.defaultProps = {
   title: '',
   user: {
     _id: '',
+    balance: {
+      percent: {},
+    },
   },
 };
 

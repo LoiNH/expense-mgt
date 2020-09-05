@@ -6,7 +6,7 @@ const History = (props) => {
     <div className="expense-main-block shadow rounded bg-white p-3 mt-2">
       <span className="mb-0 text-12 weight-600 text-uppercase">Lịch sử giao dịch</span>
       <div className="mt-4">
-        <div className="row mb-2">
+        {/* <div className="row mb-2">
           <div className="col-md-8">
             <div className="row">
               <div className="col-md-4">
@@ -95,7 +95,7 @@ const History = (props) => {
               <b className="text-11 text-uppercase">mục</b>
             </div>
           </div>
-        </div>
+        </div> */}
         <table className="table table-striped table-inverse table-bordered table-hover table-responsive-md">
           <thead className="thead-inverse">
             <tr>
@@ -110,7 +110,7 @@ const History = (props) => {
           </thead>
           <tbody>{props.children}</tbody>
         </table>
-        <div className="d-flex justify-content-between">
+        {/* <div className="d-flex justify-content-between">
           <b className="text-12 text-uppercase">Trang 1/10</b>
           <nav aria-label="Page navigation example">
             <ul className="pagination">
@@ -126,7 +126,7 @@ const History = (props) => {
               </li>
             </ul>
           </nav>
-        </div>
+        </div> */}
       </div>
     </div>
   );
